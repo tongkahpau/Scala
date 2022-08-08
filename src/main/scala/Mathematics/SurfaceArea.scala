@@ -1,16 +1,18 @@
+package Mathematics
+
 import scala.math.{Pi, pow}
 
-object surfaceArea {
+object SurfaceArea {
 
-  /** Calculates the total surface area of sphere
+  /** Calculates the total surface area of a sphere
     * @param radius
     *   - a double to retrieve the radius of object
     * @return
-    *   - a float that returns the surface area of object or an exception for invalid input
+    *   - a float that returns the area of object or an exception for invalid input
     */
-  def surfaceAreaSphere(radius: Double): Float = {
-    if (radius < 0) throw new IllegalArgumentException("surfaceAreaSphere() only accepts non-negative values")
-    return 4 * Pi.toFloat * pow(radius, 2).toFloat
+  def surfaceAreaCircle(radius: Double): Float = {
+    if (radius < 0) throw new IllegalArgumentException("surfaceAreaCircle() only accepts non-negative values")
+    return  4 * Pi.toFloat * pow(radius, 2).toFloat
   }
 
   /** Calculates the total surface area of cuboid
@@ -23,10 +25,10 @@ object surfaceArea {
     * @return
     *   - a float that returns the surface area of object or an exception for invalid input
     */
-  def surfaceAreaCuboid(length: Double, height: Double,breadth: Double): Double = {
-    if (length < 0 || breadth < 0 || height < 0)
+  def surfaceAreaCuboid(length: Double, height: Double,breadth:Double): Float = {
+    if (length< 0 || height < 0||breadth <0)
       throw new IllegalArgumentException("surfaceAreaCuboid() only accepts non-negative values")
-    return 2 *((length*breadth)+(breadth*height)+(length*height))
+    return (2 *((length*breadth)+(breadth*height)+(length*height))).toFloat
   }
 
   /** Calculates the total surface area of cube
@@ -36,27 +38,14 @@ object surfaceArea {
     *   - a float that returns the surface area of object or an exception for invalid input
     */
   def surfaceAreaCube(side: Double): Float = {
-    if (side < 0)
+    if (side<0)
       throw new IllegalArgumentException("surfaceAreaCube() only accepts non-negative values")
-    return 6 * pow(side, 2).toFloat
+   return (6 * pow(side, 2)).toFloat
   }
 
-  /** Calculates the total surface area of a right prism
-    * @param side
-    *   - a double to retrieve the first diagonal (vertical/horizontal) of object
-    * @param height
-    *   - a double to retrieve the second diagonal (vertical/horizontal) of object
+  
 
-    * @return
-    *   - a float that returns the surface area of object or an exception for invalid input
-    */
-  def surfaceAreaRightPrism(side: Double, height: Double): Double = {
-    if (side < 0 || height < 0)
-      throw new IllegalArgumentException("surfaceAreaRightPrism() only accepts non-negative values")
-    return ((side*3)*height)+(2*(0.5*side*side)).toFloat
-  }
-
-  /** Calculates the total surface area of a right circular cylinder
+   /** Calculates the total surface area of a right circular cylinder
     * @param radius
     *   - a double to retrieve the radius of object
     * @param height
@@ -64,10 +53,10 @@ object surfaceArea {
     * @return
     *   - a float that returns the surface area of object or an exception for invalid input
     */
-  def surfaceAreaCylinder(radius: Double, height: Double): Double = {
+   def surfaceAreaCylinder(radius: Double, height: Double): Float = {
     if (radius< 0 || height < 0)
       throw new IllegalArgumentException("surfaceAreaCyclinder() only accepts non-negative values")
-    return 2*Pi.toFloat*radius.toFloat*(radius+height)
+    return (2*Pi*radius*(radius+height)).toFloat
   }
 
   /** Calculates the surface area of a right pyramid
@@ -78,12 +67,12 @@ object surfaceArea {
     * @return
     *   - a float that returns the surface area of object or an exception for invalid input
     */
-  def surfaceAreaPyramid(side: Double, height:Double): Float = {
+   def surfaceAreaPyramid(side: Double, height:Double): Float = {
     if (side < 0 || height < 0) throw new IllegalArgumentException("surfaceAreaPyramid() only accepts non-negative values")
     return (0.5*((side*4)*height)).toFloat + pow(side, 2).toFloat
   }
 
-  /** Calculates the surface area of right circular cone
+   /** Calculates the surface area of right circular cone
     * @param length
     *   - a double to retrieve the length of object
     * @param radius
@@ -91,8 +80,8 @@ object surfaceArea {
     * @return
     *   - a float that returns the surface area of object or an exception for invalid input
     */
-  def surfaceAreaCone(length: Double, radius: Double): Float = {
-    if (length < 0 || radius < 0)
+ def surfaceAreaCone(length: Double, radius: Double): Float = {
+     if (length < 0 || radius < 0)
       throw new IllegalArgumentException("surfaceAreaCone() only accepts non-negative values")
     return Pi.toFloat*radius.toFloat * (length+radius).toFloat
   }
